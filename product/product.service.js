@@ -2,6 +2,7 @@ const dbService = require('../service/db.service')
 const ObjectId = require('mongodb').ObjectId
 
 async function query(filter) {
+    
     const collection = await dbService.getCollection('style')
     try {
 
