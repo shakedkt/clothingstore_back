@@ -1,5 +1,5 @@
 const app = require("./app.js");
-const http = require("http");
+const http = require("http").createServer(app);
 
 const normalizePort = val => {
   var port = parseInt(val, 10);
@@ -36,9 +36,13 @@ const onError = error => {
   }
 };
 
-const port = normalizePort(process.env.PORT || "3000");
-app.set("port", port);
+const port = normalizePort(process.env.PORT || 3000);
 
-const server = http.createServer(app);
-server.on("error", onError);
-server.listen(port);
+app.set("port", port);
+http.listen(port, () => {
+  console.log('Server is running on port: ' + port)
+});
+
+// const server = http.createServer(app);
+// server.on("error", onError);
+// server.listen(port);
