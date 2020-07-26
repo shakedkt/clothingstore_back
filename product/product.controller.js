@@ -14,8 +14,7 @@ async function getProductById(req, res) {
 
 async function getProducts(req, res) {
     const filter = req.query.filter
-    const lol = ''
-    const products = await productService.query(lol)
+    const products = await productService.query(filter)
 
     res.status(200).json({
         messeage: "Succes",
