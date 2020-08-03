@@ -1,6 +1,4 @@
 const productService = require('./product.service')
-console.log('got here');
-
 async function getProductById(req, res) {
 
     const productId = req.params.id

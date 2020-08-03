@@ -1,5 +1,11 @@
 const app = require("./app.js");
 const http = require("http").createServer(app);
+var io = module.exports.io = require('socket.io')(http)
+
+const SocketManager = require('./socket/socketManager')
+
+io.on('connection', SocketManager)
+
 
 const normalizePort = val => {
   var port = parseInt(val, 10);
@@ -42,7 +48,3 @@ app.set("port", port);
 http.listen(port, () => {
   console.log('Server is running on port: ' + port)
 });
-
-// const server = http.createServer(app);
-// server.on("error", onError);
-// server.listen(port);
