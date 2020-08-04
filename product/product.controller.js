@@ -18,7 +18,6 @@ async function getProducts(req, res) {
         messeage: "Succes",
         products: products
     })
-
 }
 
 module.exports = {
