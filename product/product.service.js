@@ -3,7 +3,7 @@ const ObjectId = require('mongodb').ObjectId
 
 async function query(filter) {
     
-    const collection = await dbService.getCollection('style')
+    const collection = await dbService.getCollection('newStyle')
     try {
 
         if (filter === '') {
@@ -20,7 +20,7 @@ async function query(filter) {
 }
 
 async function getProductById(id) {
-    const collection = await dbService.getCollection('style')
+    const collection = await dbService.getCollection('newStyle')
     try {
         const product = collection.findOne({ "_id": ObjectId(id) })
         return product
